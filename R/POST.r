@@ -25,8 +25,8 @@ elastic_POST <- function(path, index=NULL, type=NULL, metric=NULL, node=NULL,
   
   args <- es_compact(list(...))
   
-  if(!class(data) == 'json') {
-      data <- jsonlite::toJSON(data)
+  if(class(data) == 'json') {
+      data <- rjson::fromJSON(data)
   }
 
   tt <- POST(url, body = data)

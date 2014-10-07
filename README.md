@@ -486,6 +486,23 @@ curl -XPUT 'localhost:9200/_river/rplos_db/_meta' -d '{
 
 ### Searching
 
+####
+
+#connect to the elasticsearch url
+>es_connect(es_base="localhost", es_port=9200)
+
+
+# your stringified JSON query - recommend developing the queries with the mobz/head plugin. Then just paste it into an R string object
+> sample_json <- '{
+      "size":100,
+     "query": {
+         "match_all": {}
+     }
+ }'
+
+#
+> data <- es_search_v2(index="activity_instance", type="jdbc", data=sample_json)
+
 #### At the cli...
 
 ```sh

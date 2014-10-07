@@ -22,5 +22,5 @@
 
 es_search_v2 <- function(index=NULL, type=NULL, data=NULL, raw=FALSE, verbose=TRUE, ...)
 {
-  elastic_POST(path = "_search", index, type, NULL, NULL, clazz = 'elastic_search', data=NULL, raw, ...)
+  elastic_POST("_search", index, type, NULL, NULL, clazz = 'elastic_search', data=data, raw=raw, ...)
 }

@@ -16,9 +16,11 @@
 #' 
 #' # Search Index
 #' es_search_v2(index="activity_instance", data=json_data, raw=TRUE)
-#' 
+#' NOTE: json_data should be a string that is in fromJSON format
+#' Example: json_data <- '{"size":100,"query": {"match_all": {}}}'
+#' }
 
-es_search_v2 <- function(index=NULL, type=NULL, raw=FALSE, verbose=TRUE, callopts=list(), ...)
+es_search_v2 <- function(index=NULL, type=NULL, data=NULL, raw=FALSE, verbose=TRUE, ...)
 {
-  elastic_POST(path = "_search", index, type, NULL, NULL, clazz = 'elastic_search', data=NULL, raw, callopts, ...)
+  elastic_POST(path = "_search", index, type, NULL, NULL, clazz = 'elastic_search', data=NULL, raw, ...)
 }

@@ -53,6 +53,19 @@ es_parse.elastic_search <- function(input, parsetype='list', verbose=FALSE)
   return( tt )
 }
 
+es_parse.elastic_search_v2 <- function(input, parsetype='list', verbose=FALSE)
+{
+#   tt <- NULL
+  parse_help(input, "elastic_search_v2", parsetype)
+  if(verbose){
+    max_score <- tt$hits$max_score
+    message(paste("\nmatches -> ", round(tt$hits$total,1), "\nscore -> ",
+                  ifelse(is.null(max_score), NA, round(max_score, 3)), sep="")
+    )
+  }
+  return( tt )
+}
+
 #' @method es_parse elastic_status
 #' @export
 #' @rdname es_parse

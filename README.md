@@ -488,11 +488,11 @@ curl -XPUT 'localhost:9200/_river/rplos_db/_meta' -d '{
 
 ####
 
-  > es_connect(es_base="localhost", es_port=9200)
+  es_connect(es_base="localhost", es_port=9200)
 
 
    # your stringified JSON query - recommend developing the queries with the mobz/head plugin. Then just paste the valid json into an R string object
-  > sample_json <- '{
+  sample_json <- '{
         "size":100,
        "query": {
            "match_all": {}
@@ -500,7 +500,7 @@ curl -XPUT 'localhost:9200/_river/rplos_db/_meta' -d '{
    }'
 
 
-> data <- es_search_v2(index="activity_instance", type="jdbc", data=sample_json)
+ data <- es_search_v2(index="activity_instance", type="jdbc", data=sample_json)
 
 #### At the cli...
 
